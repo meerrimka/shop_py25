@@ -7,10 +7,14 @@ User = get_user_model()
 
 
 class Category(models.Model):
-    title = models.SlugField(primary_key=True, unique=True)
+    title = models.SlugField(primary_key=True, unique=True)     #он валидирует и запрещает определенные тексты
+    parent = models.ForeignKey('self', on_delete=models.CASCADE,
+                                related_name='categories', 
+                                null=True, 
+                                blank=True)
 
     def __str__(self):
-        return f'{self.title}'
+        return f'{self.title}  ----->'
 
 
 class Product(models.Model):
