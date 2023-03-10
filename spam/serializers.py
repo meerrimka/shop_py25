@@ -16,5 +16,5 @@ class ContactSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         if Contact.objects.filter(email=validated_data['email']).exists:
             raise serializers.ValidationError('вы уже подписались')
-
         return super().create(validated_data)
+    

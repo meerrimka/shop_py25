@@ -1,10 +1,7 @@
 from django.db import models
 from django.contrib.auth import get_user_model
 
-
 User = get_user_model()
-
-
 
 class Category(models.Model):
     title = models.SlugField(primary_key=True, unique=True)     #он валидирует и запрещает определенные тексты
@@ -15,7 +12,6 @@ class Category(models.Model):
 
     def __str__(self):
         return f'{self.title}  ----->'
-
 
 class Product(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name='products')
