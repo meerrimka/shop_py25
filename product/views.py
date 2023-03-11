@@ -100,3 +100,12 @@ class ProductMixin(mixins.CreateModelMixin,
 def get_hello(request):
     big_function.delay()
     return Response('Вы получили инфо')
+
+
+from django.views.generic import ListView
+
+
+class ProductList(ListView):
+    model = Product
+    template_name = 'index.html'
+    context_object_name = 'products'

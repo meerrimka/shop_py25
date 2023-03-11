@@ -6,7 +6,7 @@ def send_spam():
     emails = [i for i in Contact.objects.all()]
     send_mail(
         'Py25 shop project', # title
-        f'прримрми', # body
+        f'helo', # body
         'chirmasheva07@gmail.com', # from
         [emails] # to
     )
